@@ -21,7 +21,7 @@ class WebContentCrawler(object):
         Constructor
         '''
         self.webpageListPath=webPageListPath;
-        self.threadMax=10;
+        self.threadMax=100;
         return;
     
     def fetchDomTree(self,url):
@@ -48,6 +48,7 @@ class WebContentCrawler(object):
     def loadTreeFromMem(self,path):
         f= open(path,'r');
         tree=html.fromstring(f.read());
+        f.close();
         return tree;
     
     def fetchAndStoreTopPages(self,numPages):
@@ -70,8 +71,8 @@ class WebContentCrawler(object):
                 for i in threadList:
                     i.join();
                 del threadList[:];
-            self.storeTree(urlTreeDict, 'web/'+timeString);
-            urlTreeDict.clear();
+                self.storeTree(urlTreeDict, 'web/'+timeString);
+                urlTreeDict.clear();
             
         for i in threadList:
             i.join();
