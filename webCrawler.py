@@ -25,9 +25,15 @@ class WebContentCrawler(object):
         return;
     
     def fetchDomTree(self,url):
-        completeUrl='http://'+url;
-        page= requests.get(completeUrl,stream=True);
-        tree= html.fromstring(page.content);
+        try:
+            completeUrl='http://'+url;
+            page= requests.get(completeUrl,stream=True);
+            tree= html.fromstring(page.content);
+        except Exception:
+                completeUrl='https://'+url;
+                page= requests.get(completeUrl,stream=True);
+                tree= html.fromstring(page.content);
+                
         return {url : tree}
     
     def fetchAndUpdateDict(self,url,urlTreeDict):
