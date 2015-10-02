@@ -3,7 +3,7 @@ Created on Sep 6, 2015
 
 @author: tlisowsk
 '''
-from webCrawler import WebContentCrawler
+from webCrawlerBetter import WebContentCrawler
 from datetime import datetime
 from lxml import html
 
