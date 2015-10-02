@@ -64,7 +64,7 @@ class WebContentCrawler(object):
                 f.write(html.tostring(urlDomTreeDictionary[key]));
                 f.close();
             except Exception:
-                os.rm(timePath+key+'.html');
+                os.remove(timePath+key+'.html');
         return;
     
     def loadTreeFromMem(self,path):

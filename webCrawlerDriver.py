@@ -9,7 +9,7 @@ from lxml import html
 
 def webCrawlerDriver():
     webCrawler=WebContentCrawler('top-1m.csv');
-    webCrawler.fetchAndStoreTopPages(100);
+    webCrawler.fetchAndStoreTopPages(10000);
     time=datetime.now()
     timeString=str(time.year)+'_'+str(time.month)+'_'+str(time.day)+'_'+str(time.hour)+'/';
     #webCrawler.storeTree(pages, 'web/'+timeString);
