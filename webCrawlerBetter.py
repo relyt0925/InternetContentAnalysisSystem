@@ -31,12 +31,12 @@ class WebContentCrawler(object):
     def fetchDomTree(self,url):
         try:
             completeUrl='http://'+url;
-            page= requests.get(completeUrl,stream=True);
+            page= requests.get(completeUrl,stream=True,timeout=3);
             tree= html.fromstring(page.content);
         except Exception:
             try:
                 completeUrl='https://'+url;
-                page= requests.get(completeUrl,stream=True);
+                page= requests.get(completeUrl,stream=True,timeout=3,verify=false);
                 tree= html.fromstring(page.content);
             except Exception:
                 return dict();
@@ -59,9 +59,12 @@ class WebContentCrawler(object):
         if not os.path.exists(timePath):
             os.makedirs(timePath);
         for key in urlDomTreeDictionary:
-            f= open(timePath+key+'.html','a');
-            f.write(html.tostring(urlDomTreeDictionary[key]));
-            f.close();
+            try:
+                f= open(timePath+key+'.html','a');
+                f.write(html.tostring(urlDomTreeDictionary[key]));
+                f.close();
+            except Exception:
+                os.rm(timePath+key+'.html');
         return;
     
     def loadTreeFromMem(self,path):
