@@ -1,0 +1,49 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+  <book category="cooking" >
+    <title lang="Lang attribute change">Everyday Italian</title> <!-- Prints out Attribute Value Changed Thrice -->
+    <author>Giada De Laurentiis</author>
+    <!-- This is a comment -->
+    <year>2005</year>
+    <price>30.00</price>
+  </book>
+  <book>
+    <title  >Harry Potter</title>    <!-- Language attribute deleted here, Works fine-->
+    <author>J K. Rowling</author>
+
+    <!-- Link Not Detected-->
+    
+    <a href="http://www.w3schools.com">This is a link</a>
+    <year>2005</year>
+    <price>29.99</price>
+  </book>
+  <book category="web" >
+    <title lang="en" cover="attribute cover added">XQuery Kick Start</title>  <!-- In this line when lang="en" is deleted and cover="attribute cover added" is left as is, it throws an error -->
+    <author>James McGovern</author>
+    <author>Per Bothner Text Added</author> <!-- TextAdded here, Works fine -->
+    <author>Kurt Cagle</author>
+    <author>James Linn</author>
+    
+     <!-- Script Not Detected -->
+
+    <script>									
+    var paragraphs = document.body.getElementsByTagName("p");          
+  	document.body.insertBefore(paragraphs[2], paragraphs[0]); <text>text</text>  
+    </script>
+
+    <author>Vaidyanathan Nagarajan</author>
+    <year>2003</year>
+    <price>49.99</price>
+  </book>
+  <book category="web" cover="paperback">
+    <title >Learning XML</title>            <!-- Language attribute deleted here, Works fine-->
+    <author>Erik T. Ray</author>
+    <year>2003</year>
+
+   <!-- Img not Detected -->   
+
+    <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+    <price>39.95</price>
+  </book>
+</bookstore> 
